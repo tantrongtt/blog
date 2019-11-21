@@ -51,7 +51,8 @@ const ArticlesHero: React.FC<IAuthor> = ({ authors }) => {
       </HeadingContainer>
       <SubheadingContainer>
         <Bio author={featuredAuthor} />
-        <GridControlsContainer>
+        
+        {/* <GridControlsContainer>
           <GridButton
             onClick={() => setGridLayout('tiles')}
             active={tilesIsActive}
@@ -70,7 +71,8 @@ const ArticlesHero: React.FC<IAuthor> = ({ authors }) => {
           >
             <Icons.Rows />
           </GridButton>
-        </GridControlsContainer>
+        </GridControlsContainer> */}
+
       </SubheadingContainer>
     </Section>
   );
