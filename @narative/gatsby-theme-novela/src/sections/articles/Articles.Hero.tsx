@@ -39,7 +39,7 @@ const ArticlesHero: React.FC<IAuthor> = ({ authors }) => {
 
   if (!featuredAuthor) {
     throw new Error(`
-      No featured Author found.
+      No featured Author found.Trong test ssh.
       Please ensure you have at least featured Author.
   `);
   }
