@@ -330,8 +330,8 @@ const Excerpt = styled.p<{
 `;
 
 const MetaData = styled.div`
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: 400;
+  font-size: 14px;
   color: ${p => p.theme.colors.grey};
   opacity: 0.33;
 
