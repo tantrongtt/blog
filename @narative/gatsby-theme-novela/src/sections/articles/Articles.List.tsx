@@ -160,8 +160,8 @@ const listTile = p => css`
   position: relative;
   display: grid;
   grid-template-columns: ${p.reverse
-    ? `${narrow} ${wide}`
-    : `${wide} ${narrow}`};
+    ? `${wide} ${wide}`
+    : `${wide} ${wide}`};
   grid-template-rows: 2;
   column-gap: 30px;
 

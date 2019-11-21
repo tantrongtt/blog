@@ -99,7 +99,7 @@ const Grid = styled.div<{ numberOfArticles: number }>`
     `;
     } else {
       return `
-      grid-template-columns: ${wide} ${narrow};
+      grid-template-columns: ${wide} ${wide};
       grid-template-rows: 2;
       `;
     }
