@@ -87,9 +87,9 @@ const Article: Template = ({ pageContext, location }) => {
       {/* <ArticleAside contentHeight={contentHeight}>
         <Progress contentHeight={contentHeight} />
       </ArticleAside> */}
-      <MobileControls>
+      {/* <MobileControls>
         <ArticleControls />
-      </MobileControls>
+      </MobileControls> */}
       <ArticleBody ref={contentSectionRef}>
         <MDXRenderer content={article.body}>
           <ArticleShare />
