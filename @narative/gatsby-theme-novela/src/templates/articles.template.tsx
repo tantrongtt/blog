@@ -45,5 +45,5 @@ const ArticlesGradient = styled.div`
 `;
 
 const ArticlesPaginator = styled.div<{ show: boolean }>`
-  ${p => p.show && `margin-top: 95px;`}
+  ${p => p.show && `margin-top: 64px;`}
 `;
