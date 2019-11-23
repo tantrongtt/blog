@@ -2,7 +2,6 @@
   bio: |
     Write to practice. Write to find ideas
   avatar: ./avatars/dennis-brotzky.jpg
-  featured: true
   social:
     - url: https://unsplash.com
     - url: https://stackoverflow.com
@@ -44,4 +43,12 @@
     - url: https://github.com
     - url: https://github.com
     - url: https://github.com
+    - url: https://github.com
+
+- name: Trong Nguyen
+  bio: |
+    Write to practice. Write to find ideas
+  avatar: ./avatars/trong-nguyen.jpg
+  featured: true
+  social:
     - url: https://github.com
