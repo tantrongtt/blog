@@ -6,7 +6,7 @@ const siteMetadata = {
   siteUrl: `https://trongnguyen.co`,
   description: `This is my description that will be used in the meta tags and important for search results`,
   hero: {
-    heading: `Hi, I’m Trong, product designer at Carousell, previouslly at Leflair & Code Engine Studio.`,
+    heading: `Hi, I’m Trong, product designer at Carousell.`,
     maxWidth: 800,
   },
   social: [
