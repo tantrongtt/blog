@@ -4,7 +4,7 @@ const siteMetadata = {
   title: `Trong Nguyen's Desk`,
   name: `Trong Nguyen`,
   siteUrl: `https://trongnguyen.co`,
-  description: `This is my description that will be used in the meta tags and important for search results`,
+  description: `Product Designer who's learning to write and express thoughts`,
   hero: {
     heading: `Hi, I’m Trong, product designer at Carousell.`,
     maxWidth: 800,
@@ -14,8 +14,8 @@ const siteMetadata = {
       url: `https://twitter.com/trongtnt92`,
     },
     {
-      name: 'stackoverflow',
-      url: `https://bit.ly/1x0885j`,
+      name: 'medium',
+      url: `https://medium.com/@trongtnt92`,
     },
   ],
 };
