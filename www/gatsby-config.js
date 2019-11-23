@@ -11,7 +11,7 @@ const siteMetadata = {
   },
   social: [
     {
-      url: `https://twitter.com/narative`,
+      url: `https://twitter.com/trongtnt92`,
     },
     {
       name: 'stackoverflow',
