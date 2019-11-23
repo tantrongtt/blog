@@ -51,14 +51,14 @@ const plugins = [
   {
     resolve: `gatsby-plugin-google-analytics`,
     options: {
-      trackingId: "UA-118232427-3",
+      trackingId: "UA-55380266-4",
     },
   },
   {
     resolve: "gatsby-plugin-mailchimp",
     options: {
       endpoint:
-        "https://narative.us19.list-manage.com/subscribe/post?u=65ef169332a03669b9538f6ef&amp;id=c55c426282",
+        "https://medium.us16.list-manage.com/subscribe/post?u=bd56b6b313e273cdd466f5abc&amp;id=736a1779cd",
     },
   },
 ];
