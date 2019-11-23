@@ -14,32 +14,8 @@ const siteMetadata = {
       url: `https://twitter.com/narative`,
     },
     {
-      url: `https://behance.com/narative`,
-    },
-    {
-      url: `https://github.com/narative`,
-    },
-    {
-      url: `https://instagram.com/narative.co`,
-    },
-    {
-      url: `https://www.linkedin.com/company/narative/`,
-    },
-    {
-      url: `https://dribbble.com/narativestudio`,
-    },
-    {
-      url: `https://youtube.com`,
-    },
-    {
-      url: `https://stackoverflow.com`,
-    },
-    {
       name: 'stackoverflow',
       url: `https://bit.ly/1x0885j`,
-    },
-    {
-      url: `https://digitalocean.com`,
     },
   ],
 };
