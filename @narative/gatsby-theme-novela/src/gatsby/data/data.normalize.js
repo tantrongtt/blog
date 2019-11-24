@@ -56,6 +56,12 @@ module.exports.local = {
       hero: normalizeHero(article),
     };
   },
+  portfolios: ({ node: portfolio }) => {
+    return {
+      ...portfolio,
+      hero: normalizeHero(portfolio),
+    };
+  },
   authors: ({ node: author }) => {
     return {
       ...author,
@@ -79,6 +85,22 @@ module.exports.contentful = {
       author,
       body: article.body.childMdx.body,
       timeToRead: article.body.childMdx.timeToRead,
+    };
+  },
+  portfolios: ({ node: portfolio }) => {
+    const author = portfolio.author.reduce((curr, next, index, array) => {
+      if (array.length === 1) {
+        return next.name;
+      }
+
+      return `${curr + next.name}, `;
+    }, ``);
+
+    return {
+      ...portfolio,
+      author,
+      body: portfolio.body.childMdx.body,
+      timeToRead: portfolio.body.childMdx.timeToRead,
     };
   },
   authors: ({ node: author }) => {

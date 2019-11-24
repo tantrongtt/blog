@@ -26,6 +26,7 @@ const plugins = [
     options: {
       contentPosts: "content/posts",
       contentAuthors: "content/authors",
+      contentPortfolios: "content/portfolios",
       rootPath: "/",
       basePath: "/",
       authorsPage: true,
