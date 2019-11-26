@@ -74,6 +74,7 @@ export type Icon = React.FC<{
 export type Template = React.FC<{
   pageContext: {
     article: IArticle;
+    portfolio: IArticle;
     authors: IAuthor[];
     mailchimp: boolean;
     next: IArticle[];

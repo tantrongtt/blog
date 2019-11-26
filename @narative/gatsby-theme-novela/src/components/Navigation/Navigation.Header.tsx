@@ -73,7 +73,7 @@ const SharePageButton: React.FC<{}> = () => {
       aria-label="Copy URL to clipboard"
       title="Copy URL to clipboard"
     >
-      {/* <Icons.Link fill={fill} /> */}
+      <Icons.Link fill={fill} />
       <ToolTip isDark={isDark} hasCopied={hasCopied}>
         Copied
       </ToolTip>
@@ -134,7 +134,7 @@ const NavigationHeader: React.FC<{}> = () => {
             </button>
           ) : (
             <>
-              <SharePageButton />
+              {/* <SharePageButton /> */}
               <DarkModeToggle />
             </>
           )}

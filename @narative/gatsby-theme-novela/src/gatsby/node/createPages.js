@@ -265,7 +265,7 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
     pathPrefix: portfolioPath,
     createPage,
     pageLength,
-    pageTemplate: templates.articles,
+    pageTemplate: templates.portfolios,
     buildPath: buildPaginatedPath,
     context: {
       authors,

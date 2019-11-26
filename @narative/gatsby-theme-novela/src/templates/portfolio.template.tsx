@@ -14,6 +14,7 @@ import { debounce } from "@utils";
 
 import ArticleAside from "../sections/article/Article.Aside";
 import ArticleHero from "../sections/article/Article.Hero";
+import ArticleControls from "../sections/article/Article.Controls";
 import ArticlesNext from "../sections/article/Article.Next";
 import ArticleSEO from "../sections/article/Article.SEO";
 import ArticleShare from "../sections/article/Article.Share";
@@ -34,7 +35,7 @@ const siteQuery = graphql`
   }
 `;
 
-const Portfolio: Template = ({ pageContext, location }) => {
+const Article: Template = ({ pageContext, location }) => {
   const contentSectionRef = useRef<HTMLElement>(null);
 
   const [hasCalculated, setHasCalculated] = useState<boolean>(false);
@@ -86,16 +87,19 @@ const Portfolio: Template = ({ pageContext, location }) => {
       <ArticleAside contentHeight={contentHeight}>
         <Progress contentHeight={contentHeight} />
       </ArticleAside>
+      {/* <MobileControls>
+        <ArticleControls />
+      </MobileControls> */}
       <ArticleBody ref={contentSectionRef}>
         <MDXRenderer content={portfolio.body}>
-          <ArticleShare />
+          {/* <ArticleShare /> */}
         </MDXRenderer>
       </ArticleBody>
       {mailchimp && portfolio.subscription && <Subscription />}
       {next.length > 0 && (
         <NextArticle narrow>
           <FooterNext>More from {name}</FooterNext>
-          <ArticlesNext articles={next} />
+          <ArticlesNext portfolio={next} />
           <FooterSpacer />
         </NextArticle>
       )}
@@ -103,7 +107,7 @@ const Portfolio: Template = ({ pageContext, location }) => {
   );
 };
 
-export default Portfolio;
+export default Article;
 
 const MobileControls = styled.div`
   position: relative;
