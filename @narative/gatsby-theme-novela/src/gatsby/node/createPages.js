@@ -138,13 +138,15 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
   ].sort(byDate);
 
   const articlesThatArentSecret = articles.filter(article => !article.secret);
-
+  
   // Combining together all the articles from different sources
   portfolios = [
     ...dataSources.local.portfolios,
     ...dataSources.contentful.portfolios,
     ...dataSources.netlify.portfolios,
   ].sort(byDate);
+  
+  const portfoliosThatArentSecret = portfolios.filter(article => !article.secret);
 
   // Combining together all the authors from different sources
   authors = getUniqueListBy(
@@ -261,7 +263,7 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
    */
   log('Creating', 'portfolios page');
   createPaginatedPages({
-    edges: articlesThatArentSecret,
+    edges: portfoliosThatArentSecret,
     pathPrefix: portfolioPath,
     createPage,
     pageLength,
@@ -302,13 +304,13 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
      * We need a way to find the next artiles to suggest at the bottom of the articles page.
      * To accomplish this there is some special logic surrounding what to show next.
      */
-    let next = articlesThatArentSecret.slice(index + 1, index + 3);
+    let next = portfoliosThatArentSecret.slice(index + 1, index + 3);
     // If it's the last item in the list, there will be no articles. So grab the first 2
-    if (next.length === 0) next = articlesThatArentSecret.slice(0, 2);
+    if (next.length === 0) next = portfoliosThatArentSecret.slice(0, 2);
     // If there's 1 item in the list, grab the first article
-    if (next.length === 1 && articlesThatArentSecret.length !== 2)
-      next = [...next, articlesThatArentSecret[0]];
-    if (articlesThatArentSecret.length === 1) next = [];
+    if (next.length === 1 && portfoliosThatArentSecret.length !== 2)
+      next = [...next, portfoliosThatArentSecret[0]];
+    if (portfoliosThatArentSecret.length === 1) next = [];
 
     const path = slugify(portfolio.slug, portfolioPath);
 
