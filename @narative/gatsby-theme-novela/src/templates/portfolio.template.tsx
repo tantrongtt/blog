@@ -14,10 +14,9 @@ import { debounce } from "@utils";
 
 import ArticleAside from "../sections/article/Article.Aside";
 import ArticleHero from "../sections/article/Article.Hero";
-import ArticleControls from "../sections/article/Article.Controls";
+import ArticleHeroFull from "../sections/article/Article.HeroFull";
 import ArticlesNext from "../sections/article/Article.Next";
 import ArticleSEO from "../sections/article/Article.SEO";
-import ArticleShare from "../sections/article/Article.Share";
 
 import { Template } from "@types";
 
@@ -83,13 +82,10 @@ const Article: Template = ({ pageContext, location }) => {
   return (
     <Layout>
       <ArticleSEO article={portfolio} authors={authors} location={location} />
-      <ArticleHero article={portfolio} authors={authors} />
-      <ArticleAside contentHeight={contentHeight}>
+      <ArticleHeroFull article={portfolio} authors={authors} />
+      {/* <ArticleAside contentHeight={contentHeight}>
         <Progress contentHeight={contentHeight} />
-      </ArticleAside>
-      {/* <MobileControls>
-        <ArticleControls />
-      </MobileControls> */}
+      </ArticleAside> */}
       <ArticleBody ref={contentSectionRef}>
         <MDXRenderer content={portfolio.body}>
           {/* <ArticleShare /> */}
