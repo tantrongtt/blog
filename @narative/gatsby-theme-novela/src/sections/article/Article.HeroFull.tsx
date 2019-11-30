@@ -3,11 +3,10 @@ import styled from '@emotion/styled';
 
 import Headings from '@components/Headings';
 import Image, { ImagePlaceholder } from '@components/Image';
+import Section from "@components/Section";
 
 import mediaqueries from '@styles/media';
 import { IArticle, IAuthor } from '@types';
-
-import ArticleAuthors from './Article.Authors';
 
 interface ArticleHeroProps {
   article: IArticle;
@@ -15,7 +14,6 @@ interface ArticleHeroProps {
 }
 
 const ArticleHeroFull: React.FC<ArticleHeroProps> = ({ article, authors }) => {
-  const hasCoAUthors = authors.length > 1;
   const hasHeroImage =
     article.hero &&
     Object.keys(article.hero.full).length !== 0 &&
@@ -30,15 +28,12 @@ const ArticleHeroFull: React.FC<ArticleHeroProps> = ({ article, authors }) => {
           <ImagePlaceholder />
       )}
       </HeroImage>
-      <Header>
-        <HeroHeading>{article.title}</HeroHeading>
-        <HeroSubtitle hasCoAUthors={hasCoAUthors}>
-          <ArticleAuthors authors={authors} />
-          <ArticleMeta hasCoAUthors={hasCoAUthors}>
-            {article.date} · {article.timeToRead} min read
-          </ArticleMeta>
-        </HeroSubtitle>
-      </Header>
+      <Section>
+        <Header>
+          <HeroHeading>{article.title}</HeroHeading>
+          <HeroSubtitle>{article.excerpt}</HeroSubtitle>
+        </Header>
+      </Section>
       
     </Hero>
   );
@@ -48,6 +43,7 @@ export default ArticleHeroFull;
 
 const Hero = styled.div`
     margin-top: -96px;
+    position: relative;
   ${p => mediaqueries.phablet`
     &::before {
       content: "";
@@ -75,24 +71,15 @@ const Hero = styled.div`
   `}
 `;
 
-const ArticleMeta = styled.div<{ hasCoAUthors: boolean }>`
-  margin-left: ${p => (p.hasCoAUthors ? '10px' : '0')};
-
-  ${mediaqueries.phablet`
-    margin-left: 0;
-  `}
-`;
-
 const Header = styled.header`
-  position: relative;
+  position: absolute;
+  top: 150px;
   z-index: 10;
   margin:100px auto 56px;
-  padding-left: 68px;
-  max-width: 749px;
+  max-width: 540px;
 
   ${mediaqueries.desktop`
-    padding-left: 53px;
-    max-width: calc(507px + 53px);
+    max-width: 385px;
     margin: 100px auto 70px;
   `}
 
@@ -104,7 +91,6 @@ const Header = styled.header`
 
   ${mediaqueries.phablet`
     margin: 64px auto 64px;
-    padding: 0 40px;
   `}
 
   @media screen and (max-height: 700px) {
@@ -129,38 +115,12 @@ const HeroHeading = styled(Headings.h1)`
   `}
 `;
 
-const HeroSubtitle = styled.div<{ hasCoAUthors: boolean }>`
+const HeroSubtitle = styled.div`
   position: relative;
-  display: flex;
   font-size: 18px;
-  color: ${p => p.theme.colors.grey};
-
-  ${p => mediaqueries.phablet`
-    font-size: 14px;
-    flex-direction: column;
-
-    ${p.hasCoAUthors &&
-      `
-        &::before {
-          content: '';
-          position: absolute;
-          left: -20px;
-          right: -20px;
-          top: -10px;
-          bottom: -10px;
-          border: 1px solid ${p.theme.colors.horizontalRule};
-          opacity: 0.5;
-          border-radius: 5px;
-        }
-    `}
-
-
-    strong {
-      display: block;
-      font-weight: 500;
-      margin-bottom: 5px;
-    }
-  `}
+  color: ${p => p.theme.colors.primary};
+  align-items: center;
+  opactity: .8;
 `;
 
 const HeroImage = styled.div`
@@ -169,6 +129,12 @@ const HeroImage = styled.div`
   width: 100%;
   overflow: hidden;
   margin: 0 auto;
+  height: 720px;
+
+    & > div {
+      height: 720px;
+    }
+
 
   ${mediaqueries.tablet`
     max-width: 100%;
@@ -176,11 +142,11 @@ const HeroImage = styled.div`
 
   ${mediaqueries.phablet`
     margin-top: 24px;
-    height: 220px;
+    height: 500px;
     border-radius: 10px 10px 0 0;
 
     & > div {
-      height: 220px;
+      height: 500px;
     }
 `}
 `;
