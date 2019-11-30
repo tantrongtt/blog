@@ -23,13 +23,13 @@ const ArticleHeroFull: React.FC<ArticleHeroProps> = ({ article, authors }) => {
 
   return (
     <Hero>
-    <HeroImage id="ArticleImage__Hero">
-    {hasHeroImage ? (
-        <Image src={article.hero.full} />
-    ) : (
-        <ImagePlaceholder />
-    )}
-    </HeroImage>
+      <HeroImage id="ArticleImage__Hero">
+      {hasHeroImage ? (
+          <Image src={article.hero.full} />
+      ) : (
+          <ImagePlaceholder />
+      )}
+      </HeroImage>
       <Header>
         <HeroHeading>{article.title}</HeroHeading>
         <HeroSubtitle hasCoAUthors={hasCoAUthors}>
@@ -175,9 +175,10 @@ const HeroImage = styled.div`
   `}
 
   ${mediaqueries.phablet`
-    margin: 0 auto;
-    width: calc(100vw - 40px);
+    // margin: 0 auto;
+    margin-top: 24px;
     height: 220px;
+    border-radius: 10px 10px 0 0;
 
     & > div {
       height: 220px;
