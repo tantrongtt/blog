@@ -57,8 +57,9 @@ module.exports.local = {
       }
     }
   }`,
+
   portfolios: `{
-    portfolios: allArticle(
+    portfolios: allPortfolio(
       sort: { fields: [date, title], order: DESC }
       limit: 1000
     ) {

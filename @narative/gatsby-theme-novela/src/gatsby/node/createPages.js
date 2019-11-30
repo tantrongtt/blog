@@ -80,12 +80,12 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
   }
 
   log('Config basePath', basePath);
+  log('Config portfolioPath', portfolioPath);
   if (authorsPage) log('Config authorsPath', authorsPath);
-  if (authorsPage) log('Config portfolioPath', portfolioPath);
 
   if (local) {
     try {
-      log('Querying Authors & Articles source:', 'Local');
+      log('Querying Authors & Articles, Portfolio source:', 'Local');
       const localAuthors = await graphql(query.local.authors);
       const localArticles = await graphql(query.local.articles);
       const localPortfolios = await graphql(query.local.portfolios);
@@ -146,7 +146,7 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
     ...dataSources.netlify.portfolios,
   ].sort(byDate);
   
-  const portfoliosThatArentSecret = portfolios.filter(article => !article.secret);
+  const portfoliosThatArentSecret = portfolios.filter(portfolio => !portfolio.secret);
 
   // Combining together all the authors from different sources
   authors = getUniqueListBy(

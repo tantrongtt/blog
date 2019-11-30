@@ -175,7 +175,6 @@ const HeroImage = styled.div`
   `}
 
   ${mediaqueries.phablet`
-    // margin: 0 auto;
     margin-top: 24px;
     height: 220px;
     border-radius: 10px 10px 0 0;
