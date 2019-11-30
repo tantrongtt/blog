@@ -133,7 +133,6 @@ module.exports = ({ node, actions, getNode, createNodeId }, themeOptions) => {
       secret: node.frontmatter.secret || false,
       slug: generateSlug(
         basePath,
-        'portfolios',
         generateArticlePermalink(
           slugify(node.frontmatter.slug || node.frontmatter.title),
           node.frontmatter.date,

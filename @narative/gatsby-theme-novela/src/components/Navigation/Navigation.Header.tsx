@@ -90,8 +90,8 @@ const NavigationHeader: React.FC<{}> = () => {
           <Hidden>Navigate back to the homepage</Hidden>
         </LogoLink>
         <NavControls>
-          <NavLink to={`/portfolios`} title={`Portfolios`} >
-            Portfolios
+          <NavLink to={`/writing`} title={`Writing`} >
+            Writing
           </NavLink>
           {showBackArrow ? (
             <ButtonExit
@@ -147,7 +147,7 @@ const NavContainer = styled.div`
   }
 `;
 
-const NavLink = styled(Link)<{ back: string }>`
+const NavLink = styled(Link)`
   color: ${p => p.theme.colors.grey};
   transition: color 0.25s var(--ease-in-out-quad);
   display: inline-block;
@@ -215,7 +215,7 @@ const NavControls = styled.div`
   `}
 `;
 
-const ButtonExit = styled.button<{ back: string }>`
+const ButtonExit = styled.button`
   margin-left: 10px;
 `;
 

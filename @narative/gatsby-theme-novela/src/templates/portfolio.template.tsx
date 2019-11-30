@@ -7,15 +7,12 @@ import Layout from "@components/Layout";
 import MDXRenderer from "@components/MDX";
 import Progress from "@components/Progress";
 import Section from "@components/Section";
-import Subscription from "@components/Subscription";
 
 import mediaqueries from "@styles/media";
 import { debounce } from "@utils";
 
 import ArticleAside from "../sections/article/Article.Aside";
-import ArticleHero from "../sections/article/Article.Hero";
 import ArticleHeroFull from "../sections/article/Article.HeroFull";
-import ArticlesNext from "../sections/article/Article.Next";
 import ArticleSEO from "../sections/article/Article.SEO";
 
 import { Template } from "@types";
@@ -83,22 +80,13 @@ const Article: Template = ({ pageContext, location }) => {
     <Layout>
       <ArticleSEO article={portfolio} authors={authors} location={location} />
       <ArticleHeroFull article={portfolio} authors={authors} />
-      {/* <ArticleAside contentHeight={contentHeight}>
+      <ArticleAside contentHeight={contentHeight}>
         <Progress contentHeight={contentHeight} />
-      </ArticleAside> */}
+      </ArticleAside>
       <ArticleBody ref={contentSectionRef}>
         <MDXRenderer content={portfolio.body}>
-          {/* <ArticleShare /> */}
         </MDXRenderer>
       </ArticleBody>
-      {mailchimp && portfolio.subscription && <Subscription />}
-      {next.length > 0 && (
-        <NextArticle narrow>
-          <FooterNext>More from {name}</FooterNext>
-          <ArticlesNext portfolio={next} />
-          <FooterSpacer />
-        </NextArticle>
-      )}
     </Layout>
   );
 };

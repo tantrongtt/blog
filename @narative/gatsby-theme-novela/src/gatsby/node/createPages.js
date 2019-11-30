@@ -55,6 +55,7 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
     authorsPath = '/authors',
     authorsPage = true,
     portfolioPath = '/portfolios',
+    postsPath = '/writing',
     pageLength = 10,
     sources = {},
     mailchimp = '',
@@ -177,7 +178,7 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
   log('Creating', 'articles page');
   createPaginatedPages({
     edges: articlesThatArentSecret,
-    pathPrefix: basePath,
+    pathPrefix: postsPath,
     createPage,
     pageLength,
     pageTemplate: templates.articles,
@@ -264,7 +265,7 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
   log('Creating', 'portfolios page');
   createPaginatedPages({
     edges: portfoliosThatArentSecret,
-    pathPrefix: portfolioPath,
+    pathPrefix: basePath,
     createPage,
     pageLength,
     pageTemplate: templates.portfolios,
@@ -317,12 +318,11 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
     createPage({
       path: portfolio.slug,
       component: templates.portfolio,
-      pathPrefix: portfolioPath,
 
       context: {
         portfolio,
         authors: authorsThatWroteThePortfolio,
-        originalPath: path,
+        basePath,
         slug: portfolio.slug,
         id: portfolio.id,
         title: portfolio.title,

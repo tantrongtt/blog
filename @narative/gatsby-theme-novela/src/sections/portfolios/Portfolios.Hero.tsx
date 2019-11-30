@@ -8,7 +8,7 @@ import Icons from '@icons';
 import mediaqueries from '@styles/media';
 import { IAuthor } from '@types';
 
-import { GridLayoutContext } from './Articles.List.Context';
+import { GridLayoutContext } from './Portfolios.List.Context';
 
 const authorQuery = graphql`
   {
@@ -17,7 +17,7 @@ const authorQuery = graphql`
         node {
           siteMetadata {
             hero {
-              writingHeading
+              heading
               maxWidth
             }
           }
@@ -27,7 +27,7 @@ const authorQuery = graphql`
   }
 `;
 
-const ArticlesHero: React.FC<IAuthor> = ({ authors }) => {
+const PortfoliosHero: React.FC<IAuthor> = ({ authors }) => {
   const { gridLayout = 'tiles', hasSetGridLayout, setGridLayout } = useContext(
     GridLayoutContext,
   );
@@ -47,16 +47,13 @@ const ArticlesHero: React.FC<IAuthor> = ({ authors }) => {
   return (
     <Section relative id="Articles__Hero">
       <HeadingContainer style={{ maxWidth: `${hero.maxWidth}px` }}>
-        <HeroHeading dangerouslySetInnerHTML={{ __html: hero.writingHeading }} />
+        <HeroHeading dangerouslySetInnerHTML={{ __html: hero.heading }} />
       </HeadingContainer>
-      <SubheadingContainer>
-        <Bio author={featuredAuthor} />
-      </SubheadingContainer>
     </Section>
   );
 };
 
-export default ArticlesHero;
+export default PortfoliosHero;
 
 const SubheadingContainer = styled.div`
   display: flex;

@@ -14,7 +14,7 @@ const ArticlesPage: Template = ({ location, pageContext }) => {
     <Layout>
       <SEO pathname={location.pathname} />
       <Section narrow>
-        <Heading>Trong Nguyen Nguyen</Heading>
+        <Heading>Trong Nguyen</Heading>
         <Subheading>hhe</Subheading>
       </Section>
       <ArticlesGradient />

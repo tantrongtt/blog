@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { graphql, useStaticQuery } from "gatsby";
 
+import PortfoliosHero from "../sections/portfolios/Portfolios.Hero";
 import Section from "@components/Section";
 import SEO from "@components/SEO";
 import Layout from "@components/Layout";
@@ -27,6 +28,7 @@ const siteQuery = graphql`
 
 const PortfoliosPage: Template = ({ location, pageContext }) => {
   const portfolio = pageContext.group;
+  const authors = pageContext.additionalContext.authors;
 
   const results = useStaticQuery(siteQuery);
   const name = results.allSite.edges[0].node.siteMetadata.name;
@@ -35,9 +37,9 @@ const PortfoliosPage: Template = ({ location, pageContext }) => {
     <Layout>
       <SEO
         pathname={location.pathname}
-        title={"Portfolio | " + name}
+        title={name + "'s Portfolio" }
       />
-      <div>Trong</div>
+      <PortfoliosHero authors={authors} />
       <Section narrow>
         <ArticlesList articles={portfolio} />
         <ArticlesPaginator show={pageContext.pageCount > 1}>
