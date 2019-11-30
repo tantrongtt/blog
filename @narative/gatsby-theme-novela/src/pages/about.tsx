@@ -8,7 +8,7 @@ import Layout from "@components/Layout";
 
 import { Template } from "@types";
 
-const ArticlesPage: Template = ({ location, pageContext }) => {
+const AboutPage: Template = ({ location, pageContext }) => {
 
   return (
     <Layout>
@@ -23,7 +23,7 @@ const ArticlesPage: Template = ({ location, pageContext }) => {
   );
 };
 
-export default ArticlesPage;
+export default AboutPage;
 
 const ArticlesGradient = styled.div`
   position: absolute;
