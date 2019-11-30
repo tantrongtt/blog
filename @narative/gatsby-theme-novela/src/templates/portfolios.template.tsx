@@ -8,7 +8,7 @@ import SEO from "@components/SEO";
 import Layout from "@components/Layout";
 import Paginator from "@components/Navigation/Navigation.Paginator";
 
-import ArticlesList from "../sections/articles/Articles.List";
+import PortfolioList from "../sections/portfolios/Portfolios.List";
 
 import { Template } from "@types";
 
@@ -41,7 +41,7 @@ const PortfoliosPage: Template = ({ location, pageContext }) => {
       />
       <PortfoliosHero authors={authors} />
       <Section narrow>
-        <ArticlesList articles={portfolio} />
+        <PortfolioList articles={portfolio} />
         <ArticlesPaginator show={pageContext.pageCount > 1}>
           <Paginator {...pageContext} />
         </ArticlesPaginator>

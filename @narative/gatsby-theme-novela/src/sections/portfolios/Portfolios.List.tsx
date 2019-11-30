@@ -9,7 +9,7 @@ import Image, { ImagePlaceholder } from '@components/Image';
 import mediaqueries from '@styles/media';
 import { IArticle } from '@types';
 
-import { GridLayoutContext } from './Portfolios.List.Context';
+import { GridLayoutContext } from '../articles/Articles.List.Context';
 
 /**
  * Tiles

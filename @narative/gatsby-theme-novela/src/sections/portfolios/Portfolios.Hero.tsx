@@ -8,7 +8,7 @@ import Icons from '@icons';
 import mediaqueries from '@styles/media';
 import { IAuthor } from '@types';
 
-import { GridLayoutContext } from './Portfolios.List.Context';
+import { GridLayoutContext } from '../articles/Articles.List.Context';
 
 const authorQuery = graphql`
   {
@@ -54,34 +54,6 @@ const PortfoliosHero: React.FC<IAuthor> = ({ authors }) => {
 };
 
 export default PortfoliosHero;
-
-const SubheadingContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 48px;
-
-  ${mediaqueries.desktop`
-    margin-bottom: 48px;
-  `};
-
-  ${mediaqueries.tablet`
-    margin-bottom: 32px;
-  `};
-
-  ${mediaqueries.phablet`
-    display: none;
-  `};
-`;
-
-const GridControlsContainer = styled.div`
-  display: flex;
-  align-items: center;
-
-  ${mediaqueries.tablet`
-    display: none;
-  `};
-`;
 
 const HeadingContainer = styled.div`
   margin: 100px 0;
