@@ -1,23 +1,42 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { graphql, useStaticQuery } from "gatsby";
 
 import Section from "@components/Section";
 import SEO from "@components/SEO";
 import Layout from "@components/Layout";
 import Paginator from "@components/Navigation/Navigation.Paginator";
 
-import ArticlesHero from "../sections/articles/Articles.Hero";
 import ArticlesList from "../sections/articles/Articles.List";
 
 import { Template } from "@types";
 
+const siteQuery = graphql`
+  {
+    allSite {
+      edges {
+        node {
+          siteMetadata {
+            name
+          }
+        }
+      }
+    }
+  }
+`;
+
 const PortfoliosPage: Template = ({ location, pageContext }) => {
   const portfolio = pageContext.group;
-  const authors = pageContext.additionalContext.authors;
+
+  const results = useStaticQuery(siteQuery);
+  const name = results.allSite.edges[0].node.siteMetadata.name;
 
   return (
     <Layout>
-      <SEO pathname={location.pathname} />
+      <SEO
+        pathname={location.pathname}
+        title={"Portfolio | " + name}
+      />
       <div>Trong</div>
       <Section narrow>
         <ArticlesList articles={portfolio} />
