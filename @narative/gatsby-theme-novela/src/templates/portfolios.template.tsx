@@ -37,7 +37,7 @@ const PortfoliosPage: Template = ({ location, pageContext }) => {
     <Layout>
       <SEO
         pathname={location.pathname}
-        title={name + "'s Portfolio" }
+        title={name}
       />
       <PortfoliosHero authors={authors} />
       <Section narrow>

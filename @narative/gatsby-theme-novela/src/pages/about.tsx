@@ -13,9 +13,10 @@ const ArticlesPage: Template = ({ location, pageContext }) => {
   return (
     <Layout>
       <SEO pathname={location.pathname} />
-      <Section narrow>
-        <Heading>Trong Nguyen</Heading>
-        <Subheading>hhe</Subheading>
+      <Section relative>
+        <HeadingContainer>
+          <HeroHeading>About me</HeroHeading>
+        </HeadingContainer>
       </Section>
       <ArticlesGradient />
     </Layout>
@@ -36,17 +37,36 @@ const ArticlesGradient = styled.div`
   transition: ${p => p.theme.colorModeTransition};
 `;
 
-const Heading = styled.h1`
-  font-size: 38px;
+const HeadingContainer = styled.div`
+  margin: 100px 0;
   font-family: ${p => p.theme.fonts.title};
-  color: ${p => p.theme.colors.primary};
-  margin-bottom: 15px;
-  font-weight: 600;
+
+  ${mediaqueries.desktop`
+    width: 80%;
+  `}
 
   ${mediaqueries.tablet`
+    width: 100%;
+  `}
+`;
+
+const HeroHeading = styled.h1`
+  font-style: normal;
+  font-weight: 600;
+  font-size: 52px;
+  line-height: 1.15;
+  color: ${p => p.theme.colors.primary};
+
+  a {
+    color: ${p => p.theme.colors.accent};
+  }
+
+  ${mediaqueries.desktop`
+    font-size: 38px
   `}
 
   ${mediaqueries.phablet`
+    font-size: 32px;
   `}
 `;
 
