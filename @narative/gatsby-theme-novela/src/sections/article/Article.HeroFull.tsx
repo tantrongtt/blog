@@ -76,7 +76,7 @@ const Header = styled.header`
   top: 150px;
   z-index: 10;
   margin:100px auto 56px;
-  max-width: 540px;
+  max-width: 510px;
 
   ${mediaqueries.desktop`
     max-width: 385px;
@@ -101,9 +101,11 @@ const Header = styled.header`
 const HeroHeading = styled(Headings.h1)`
   font-size: 48px;
   font-family: ${p => p.theme.fonts.title};
+  color: ${p => p.theme.colors.textTitle};
   margin-bottom: 25px;
   font-weight: bold;
   line-height: 1.32;
+  opacity: .9;
 
   ${mediaqueries.tablet`
     margin-bottom: 20px;
@@ -118,9 +120,9 @@ const HeroHeading = styled(Headings.h1)`
 const HeroSubtitle = styled.div`
   position: relative;
   font-size: 18px;
-  color: ${p => p.theme.colors.primary};
+  color: ${p => p.theme.colors.textTitle};
   align-items: center;
-  opactity: .8;
+  opacity: .8;
 `;
 
 const HeroImage = styled.div`
@@ -129,15 +131,20 @@ const HeroImage = styled.div`
   width: 100%;
   overflow: hidden;
   margin: 0 auto;
-  height: 720px;
+  height: 100vh;
 
     & > div {
-      height: 720px;
+      height: 100vh;
     }
 
 
   ${mediaqueries.tablet`
     max-width: 100%;
+    height: 70vh;
+
+    & > div {
+      height: 70vh;
+    }
   `}
 
   ${mediaqueries.phablet`
