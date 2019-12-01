@@ -115,6 +115,7 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
           >
             {article.excerpt}
           </Excerpt>
+          <SeeMore>See casestudy →</SeeMore>
         </TextContainer>
         <ContentContainer>
         </ContentContainer>
@@ -245,9 +246,12 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
     height: 100%;
   }
 
-  ${mediaqueries.tablet`
+  ${mediaqueries.desktop`
     height: 500px;
-    margin-bottom: 35px;
+  `}
+
+  ${mediaqueries.tablet`
+    height: 480px;
   `}
 
   ${mediaqueries.phablet`
@@ -327,6 +331,14 @@ const Excerpt = styled.p<{
   `}
 `;
 
+const SeeMore = styled.div`
+  font-size: 14px;
+  color: ${p => p.theme.colors.accent};
+  font-family: ${p => p.theme.fonts.title};
+  margin-top: 8px;
+  opacity: .8;
+`;
+
 const MetaData = styled.div`
   font-weight: 400;
   font-size: 14px;
@@ -349,12 +361,6 @@ const ArticleLink = styled(Link)`
   z-index: 1;
   transition: transform 0.33s var(--ease-out-quart);
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-
-  &:hover ${ImageContainer}, &:focus ${ImageContainer} {
-    // transform: translateY(-1px);
-    // box-shadow: 0 30px 40px -20px rgba(41, 65, 69, 0.32),
-      // 0 30px 30px -30px rgba(41, 65, 69, 0.52);
-  }
 
   &::after, &::before {
     background: none repeat scroll 0 0 transparent;
