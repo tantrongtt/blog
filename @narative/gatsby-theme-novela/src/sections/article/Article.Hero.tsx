@@ -137,6 +137,7 @@ const HeroSubtitle = styled.div<{ hasCoAUthors: boolean }>`
   ${p => mediaqueries.phablet`
     font-size: 14px;
     flex-direction: column;
+    align-items: left;
 
     ${p.hasCoAUthors &&
       `

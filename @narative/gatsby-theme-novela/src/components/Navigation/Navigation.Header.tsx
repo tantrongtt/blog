@@ -96,19 +96,7 @@ const NavigationHeader: React.FC<{}> = () => {
           <NavLink to={`/about`} title={`About me`} activeClassName="active" >
             About
           </NavLink>
-          {showBackArrow ? (
-            <ButtonExit
-              onClick={() => navigate(previousPath)}
-              title="Navigate back to the homepage"
-              aria-label="Navigate back to the homepage"
-            >
-              <Icons.Ex fill={fill} />
-            </ButtonExit>
-          ) : (
-            <>
-              <DarkModeToggle />
-            </>
-          )}
+          <DarkModeToggle />
         </NavControls>
       </NavContainer>
     </Section>
