@@ -115,7 +115,7 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
           >
             {article.excerpt}
           </Excerpt>
-          <SeeMore>See casestudy →</SeeMore>
+          <SeeMore>Read case study →</SeeMore>
         </TextContainer>
         <ContentContainer>
         </ContentContainer>
@@ -164,10 +164,6 @@ const listTile = p => css`
     : `${wide} ${wide}`};
   grid-template-rows: 2;
   column-gap: 30px;
-
-  // &:not(:last-child) {
-  //   margin-bottom: 75px;
-  // }
 
   ${mediaqueries.desktop_medium`
     grid-template-columns: 1fr 1fr;
