@@ -29,6 +29,26 @@ function normalizeHero(article) {
   return hero;
 }
 
+function normalizeThumnail(article) {
+  let thumbnail = {
+    full: {},
+    regular: {},
+    narrow: {},
+  };
+
+  if (article.thumbnail) {
+    thumbnail = {
+      full: article.thumbnail.full.fluid,
+      regular: article.thumbnail.regular.fluid,
+      narrow: article.thumbnail.narrow.fluid,
+    };
+  } else {
+    console.log('\u001B[33m', `Missing thumbnail for "${article.title}"`);
+  }
+
+  return thumbnail;
+}
+
 function normalizeAvatar(author) {
   let avatar = {
     small: {},
@@ -60,6 +80,7 @@ module.exports.local = {
     return {
       ...portfolio,
       hero: normalizeHero(portfolio),
+      thumbnail: normalizeThumnail(portfolio),
     };
   },
   authors: ({ node: author }) => {

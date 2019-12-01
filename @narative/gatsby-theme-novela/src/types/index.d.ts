@@ -49,6 +49,12 @@ export interface IArticle {
     regular: IGatsbyImageFluid;
     seo: string;
   };
+  thumbnail: {
+    full: IGatsbyImageFluid;
+    preview: IGatsbyImageFluid;
+    regular: IGatsbyImageFluid;
+    seo: string;
+  };
   timeToRead: number;
   date: string;
 }
