@@ -104,7 +104,7 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
         <ImageContainer narrow={narrow} gridLayout={gridLayout}>
           {hasHeroImage ? <Image src={imageSource} /> : <ImagePlaceholder />}
         </ImageContainer>
-        <div>
+        <TextContainer>
           <Title dark hasOverflow={hasOverflow} gridLayout={gridLayout}>
             {article.title}
           </Title>
@@ -115,10 +115,9 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
           >
             {article.excerpt}
           </Excerpt>
-          <MetaData>
-            {article.date} · {article.timeToRead} min read
-          </MetaData>
-        </div>
+        </TextContainer>
+        <ContentContainer>
+        </ContentContainer>
       </Item>
     </ArticleLink>
   );
@@ -165,9 +164,9 @@ const listTile = p => css`
   grid-template-rows: 2;
   column-gap: 30px;
 
-  &:not(:last-child) {
-    margin-bottom: 75px;
-  }
+  // &:not(:last-child) {
+  //   margin-bottom: 75px;
+  // }
 
   ${mediaqueries.desktop_medium`
     grid-template-columns: 1fr 1fr;
@@ -213,17 +212,9 @@ const listItemRow = p => css`
 const listItemTile = p => css`
   position: relative;
 
-  ${mediaqueries.tablet`
-    margin-bottom: 60px;
-  `}
-
   @media (max-width: 540px) {
     background: ${p.theme.colors.card};
   }
-
-  ${mediaqueries.phablet`
-    margin-bottom: 40px;
-  `}
 `;
 
 // If only 1 article, dont create 2 rows.
@@ -246,8 +237,7 @@ const Item = styled.div<{ gridLayout: string }>`
 
 const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
   position: relative;
-  height: ${p => (p.gridLayout === 'tiles' ? '280px' : '220px')};
-  margin-bottom: ${p => (p.gridLayout === 'tiles' ? '30px' : 0)};
+  height: ${p => (p.gridLayout === 'tiles' ? '680px' : '220px')};
   transition: transform 0.3s var(--ease-out-quad),
     box-shadow 0.3s var(--ease-out-quad);
 
@@ -256,7 +246,7 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
   }
 
   ${mediaqueries.tablet`
-    height: 200px;
+    height: 500px;
     margin-bottom: 35px;
   `}
 
@@ -267,11 +257,28 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
   `}
 `;
 
+const TextContainer = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 48px 40px;
+
+  ${mediaqueries.phablet`
+    padding: 40px 32px;
+  `}
+`;
+
+const ContentContainer = styled.div`
+  position: relative;
+`;
+
 const Title = styled(Headings.h2)`
-  font-size: 21px;
+  font-size: 28px;
   font-family: ${p => p.theme.fonts.title};
+  color: ${p => p.theme.colors.textTitle};
+  opacity: .8;
   margin-bottom: ${p =>
-    p.hasOverflow && p.gridLayout === 'tiles' ? '35px' : '10px'};
+    p.hasOverflow && p.gridLayout === 'tiles' ? '35px' : '16px'};
   transition: color 0.3s ease-in-out;
   ${limitToTwoLines};
 
@@ -285,7 +292,6 @@ const Title = styled(Headings.h2)`
 
   ${mediaqueries.phablet`
     font-size: 22px;  
-    padding: 30px 20px 0;
     margin-bottom: 10px;
     -webkit-line-clamp: 3;
   `}
@@ -297,12 +303,14 @@ const Excerpt = styled.p<{
   gridLayout: string;
 }>`
   ${limitToTwoLines};
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 10px;
-  color: ${p => p.theme.colors.grey};
+  color: ${p => p.theme.colors.textTitle};
+  opacity: .7;
   font-family: ${p => p.theme.fonts.body};
   display: ${p => (p.hasOverflow && p.gridLayout === 'tiles' ? 'none' : 'box')};
   max-width: ${p => (p.narrow ? '415px' : '515px')};
+  line-height: 22px;
 
   ${mediaqueries.desktop`
     display: -webkit-box;
@@ -314,7 +322,6 @@ const Excerpt = styled.p<{
 
   ${mediaqueries.phablet`
     max-width: 100%;
-    padding:  0 20px;
     margin-bottom: 20px;
     -webkit-line-clamp: 3;
   `}
@@ -336,24 +343,52 @@ const ArticleLink = styled(Link)`
   position: relative;
   display: block;
   width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
-  border-radius: 5px;
+  margin-bottom: 30px;
   z-index: 1;
   transition: transform 0.33s var(--ease-out-quart);
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 
   &:hover ${ImageContainer}, &:focus ${ImageContainer} {
-    transform: translateY(-1px);
-    box-shadow: 0 30px 40px -20px rgba(41, 65, 69, 0.32),
-      0 30px 30px -30px rgba(41, 65, 69, 0.52);
+    // transform: translateY(-1px);
+    // box-shadow: 0 30px 40px -20px rgba(41, 65, 69, 0.32),
+      // 0 30px 30px -30px rgba(41, 65, 69, 0.52);
   }
 
-  &:hover h2,
-  &:focus h2 {
-    color: ${p => p.theme.colors.accent};
+  &::after, &::before {
+    background: none repeat scroll 0 0 transparent;
+    content: "";
+    display: block;
+    height: 4px;
+    left: 50%;
+    position: absolute;
+    background: ${p => p.theme.colors.secondary};
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+    z-index: 1;
   }
+
+  ::after {
+    top: -1px;
+  }
+
+  ::before {
+    bottom: 0px;
+  }
+
+  &:hover {
+    &::after {
+      width: 100%; 
+      left: 0; 
+    }
+
+    ::before {
+      width: 100%; 
+      left: 0; 
+    }
+  }
+
 
   &[data-a11y='true']:focus::after {
     content: '';
