@@ -133,11 +133,11 @@ const HeroSubtitle = styled.div<{ hasCoAUthors: boolean }>`
   font-size: 14px;
   color: ${p => p.theme.colors.grey};
   align-items: center;
-
+  
   ${p => mediaqueries.phablet`
-    font-size: 14px;
     flex-direction: column;
     align-items: left;
+    align-items: flex-start;
 
     ${p.hasCoAUthors &&
       `
