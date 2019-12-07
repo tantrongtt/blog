@@ -6,7 +6,7 @@ const Anchor = styled.a`
   border-bottom: 1px solid ${p => p.theme.colors.primary};
   
   &:visited {
-    color: ${p => p.theme.colors.grey};
+    color: ${p => p.theme.colors.primary};
     opacity: 0.85;
   }
   
