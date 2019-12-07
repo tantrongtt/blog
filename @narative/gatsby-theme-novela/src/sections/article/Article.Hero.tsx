@@ -131,7 +131,7 @@ const HeroSubtitle = styled.div<{ hasCoAUthors: boolean }>`
   position: relative;
   display: flex;
   font-size: 14px;
-  color: ${p => p.theme.colors.grey};
+  color: ${p => p.theme.colors.secondary};
   align-items: center;
   
   ${p => mediaqueries.phablet`
